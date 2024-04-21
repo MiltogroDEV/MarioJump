@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&display=swap');
+
+.font {
+    font-family: "Micro 5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: #C89858;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------- */
+
+.game-board {
+    width: 100%;
+    height: 30vw;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    background: linear-gradient(rgb(99, 99, 236), rgb(170, 203, 247));
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe 1.5s infinite linear;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+}
+
+.pular {
+    animation: pular 0.5s;
+}
+
+.nuvem1 {
+    width: 550px;
+    position: absolute;
+    animation: nuvem1 10s infinite linear;
+}
+
+.nuvem2 {
+    width: 550px;
+    position: absolute;
+    animation: nuvem2 15s infinite linear;
+}
+
+/* ------------------------------------- */
+
+.menu-board {
+    width: 100%;
+    height: 341px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chao {
+    width: 100%;
+}
+
+.botao {
+    position: absolute;
+    border: 0;
+    top: 175px;
+    outline: none;
+    cursor: pointer;
+    background-color: rgba(2, 2, 2, 0);
+}
+
+.score {
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    font-weight: 800;
+    top: 1%;
+    left: 1%;
+    font-size: 3vw;
+    background-color: rgb(67, 241, 82);
+    padding: 0 20px 0 20px;
+    border: 5px solid black;
+}
+
+/* ------------------------------------- */
+
+@keyframes pipe {
+    0%{
+        right: -80px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes pular {
+    0%{
+        bottom: 0;
+    }
+    40%{
+        bottom: 180px;
+    }
+    50%{
+        bottom: 180px;
+    }
+    60%{
+        bottom: 180px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+
+@keyframes nuvem1 {
+    0%{
+        right: -550px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+@keyframes nuvem2 {
+    0%{
+        right: -550px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes cor {
+    0%{
+        transition: all 0.5s;
+    }
+    100%{
+        background: linear-gradient(rgb(209, 86, 86), rgb(231, 161, 161));
+    }
+}
