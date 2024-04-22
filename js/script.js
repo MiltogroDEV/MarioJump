@@ -71,6 +71,16 @@ const loop = setInterval(() => {
         console.log(valorScore);
 
         clearInterval(loop);
+
+        // Tecla enter pra reiniciar
+        document.addEventListener('keydown', function(check) {
+            if (check.key == 'Enter') {
+                this.location.reload();
+            }
+        })
+        /*----------------------------------------*/
+
+
     }
 
 }, 10);
