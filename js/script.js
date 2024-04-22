@@ -12,60 +12,46 @@ const botao = document.querySelector('.botao');
 const score = document.getElementById('score');
 
 let valorScore = 0;
+let maiorScore = 0;
 
-// let currentPipeSpeed = '1.5s';
-// let animationFrameId;
+let pipeVel = '1.5s';
 
-// function setPipeAnimation(posicao, novaVel) {
-//     pipe.style.animation = 'none';
-//     pipe.style.right = `${posicao}px`;
-//     requestAnimationFrame(() => {
-//         pipe.className = '';
-//         pipe.classList.add(novaVel === '1.5s' ? 'pipe1' : novaVel === '1.1s' ? 'pipe2' : 'pipe3');
-//         setTimeout(() => {
-//             pipe.style.animation = '';
-//         }, 20);
-//     });
-// }
 
-window.onkeydown = function(e) {
-    if (e.key === ' ') {
-        e.preventDefault();
-    }
+function setPipeAnimation(novaVel) {
+    pipe.classList.remove('pipe1', 'pipe2', 'pipe3');
+    pipe.classList.add(novaVel === '1.5s' ? 'pipe1' : novaVel === '1.1s' ? 'pipe2' : 'pipe3');
+    pipe.style.animationDuration = novaVel;
 }
 
-const pular = () => {
-    mario.classList.add('pular');
-
-    setTimeout(() => {
-        mario.classList.remove('pular');
-    }, 500);
-}
 
 const loop = setInterval(() => {
     botao.style.opacity = '0';
-
+    
     const pipePosition = pipe.offsetLeft;
-    const marioPosition = parseFloat(window.getComputedStyle(mario).bottom);
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+    const nuvem1Position = +window.getComputedStyle(nuvem1).right.replace('px', '');
+    const nuvem2Position = +window.getComputedStyle(nuvem2).right.replace('px', '');
+    const chaoPosition = +window.getComputedStyle(nuvem2).right.replace('px', '');
+    
     valorScore += 1;
     score.textContent = valorScore;
+    
+    
+    let novaVel;
+    if (valorScore > 400) {
+        novaVel = '0.6s';
+    } else if (valorScore > 200) {
+        novaVel = '1.1s';
+    } else {
+        novaVel = '1.5s';
+    }
 
-    // let novaVel;
-    // if (valorScore > 3000) {
-    //     novaVel = '0.6s';
-    // } else if (valorScore > 1000) {
-    //     novaVel = '1.1s';
-    // } else {
-    //     novaVel = '1.5s';
-    // }
-
-    // if (novaVel !== currentPipeSpeed) {
-    //     currentPipeSpeed = novaVel;
-    //     setPipeAnimation(pipePosition, novaVel);
-    // }
-
-    requestAnimationFrame(loop);
-
+    if (novaVel !== pipeVel) {
+        pipeVel = novaVel;
+        setPipeAnimation(novaVel);
+    }
+    
+    
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 100){
         
         pipe.style.animation = 'none';
@@ -75,8 +61,8 @@ const loop = setInterval(() => {
         mario.style.bottom = `${marioPosition}px`
         mario.src = '/img/game-over.png';
         
-        mario.style.width = '80px';
-        mario.style.margin = '0 0 0 50px';
+        mario.style.width = '8vh';
+        mario.style.margin = '0 0 0 5vh';
         
         nuvem1.style.animation = 'none';
         nuvem1.style.right = `${nuvem1Position}px`;
@@ -85,30 +71,31 @@ const loop = setInterval(() => {
         
         chao.style.animation = 'none';
         chao.style.right = `${chaoPosition}px`;
-
+        
         botao.style.opacity = '1';
+        
+        if (valorScore > maiorScore){
+            maiorScore = valorScore;
+        }
 
-        clearInterval(loop);
-
-        // Tecla enter pra reiniciar
         document.addEventListener('keydown', function(check) {
             if (check.key == 'Enter') {
                 this.location.reload();
             }
         })
+
+        clearInterval(loop);
     }
 
 }, 10);
 
-requestAnimationFrame(loop);
 
-document.addEventListener('keydown', function(check) {
-    if (
-        check.key === ' ' || 
-        check.key === 'w' || 
-        check.key === 'ArrowUp'
-        //qualquer outra tecla de pular adicionar aqui
-    ) {
-        pular();
+document.addEventListener('keydown', function(event) {
+    if (event.key === ' ' || event.key === 'w' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        mario.classList.add('pular');
+        setTimeout(() => {
+            mario.classList.remove('pular');
+        }, 500);
     }
 });
