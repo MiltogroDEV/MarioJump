@@ -75,4 +75,13 @@ const loop = setInterval(() => {
 
 }, 10);
 
-document.addEventListener('keydown', pular);
+document.addEventListener('keydown', function(check) {
+    if (
+        check.key === ' ' || 
+        check.key === 'w' || 
+        check.key === 'ArrowUp'
+        //qualquer outra tecla de pular adicionar aqui
+    ) {
+        pular();
+    }
+});
