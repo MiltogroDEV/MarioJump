@@ -10,6 +10,14 @@ const score = document.getElementById('score');
 valorScore = 0;
 
 
+// Para evitar o scroll quando teclar SPACE
+window.onkeydown = function(e) {
+    if (e.key === ' ') {
+        e.preventDefault();
+    }
+};
+/*----------------------------------------*/
+
 const pular = () => {
     mario.classList.add('pular');
     
