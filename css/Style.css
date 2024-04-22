@@ -29,25 +29,23 @@ body {
     background: linear-gradient(rgb(99, 99, 236), rgb(170, 203, 247));
 }
 
-.pipe {
+.pipe, .pipe1, .pipe2, .pipe3 {
     position: absolute;
     bottom: 0;
     width: 80px;
-    animation: pipe 1.5s infinite linear;
+    right: -80px;
+}
+
+.pipe1 {
+    animation: pipe1 1.5s infinite linear;
 }
 
 .pipe2 {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: pipe 1.1s infinite linear;
+    animation: pipe2 1.1s infinite linear;
 }
 
 .pipe3 {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: pipe 0.6s infinite linear;
+    animation: pipe3 0.6s infinite linear;
 }
 
 .mario {

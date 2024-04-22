@@ -1,7 +1,7 @@
 const gameBoard = document.querySelector('.game-board');
 const mario = document.querySelector('.mario');
 
-const pipe = document.querySelector('.pipe');
+const pipe = document.querySelector('.pipe1');
 
 const nuvem1 = document.querySelector('.nuvem1');
 const nuvem2 = document.querySelector('.nuvem2');
@@ -10,36 +10,61 @@ const chao = document.querySelector('.chao');
 const botao = document.querySelector('.botao');
 
 const score = document.getElementById('score');
-valorScore = 0;
 
-// Para evitar o scroll quando teclar SPACE
+let valorScore = 0;
+
+// let currentPipeSpeed = '1.5s';
+// let animationFrameId;
+
+// function setPipeAnimation(posicao, novaVel) {
+//     pipe.style.animation = 'none';
+//     pipe.style.right = `${posicao}px`;
+//     requestAnimationFrame(() => {
+//         pipe.className = '';
+//         pipe.classList.add(novaVel === '1.5s' ? 'pipe1' : novaVel === '1.1s' ? 'pipe2' : 'pipe3');
+//         setTimeout(() => {
+//             pipe.style.animation = '';
+//         }, 20);
+//     });
+// }
+
 window.onkeydown = function(e) {
     if (e.key === ' ') {
         e.preventDefault();
     }
-};
+}
 
 const pular = () => {
     mario.classList.add('pular');
-    
+
     setTimeout(() => {
         mario.classList.remove('pular');
     }, 500);
 }
 
 const loop = setInterval(() => {
-
     botao.style.opacity = '0';
-    
+
     const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
-    const nuvem1Position = +window.getComputedStyle(nuvem1).right.replace('px', '');
-    const nuvem2Position = +window.getComputedStyle(nuvem2).right.replace('px', '');
-    const chaoPosition = +window.getComputedStyle(nuvem2).right.replace('px', '');
-
-    valorScore += 1
-
+    const marioPosition = parseFloat(window.getComputedStyle(mario).bottom);
+    valorScore += 1;
     score.textContent = valorScore;
+
+    // let novaVel;
+    // if (valorScore > 3000) {
+    //     novaVel = '0.6s';
+    // } else if (valorScore > 1000) {
+    //     novaVel = '1.1s';
+    // } else {
+    //     novaVel = '1.5s';
+    // }
+
+    // if (novaVel !== currentPipeSpeed) {
+    //     currentPipeSpeed = novaVel;
+    //     setPipeAnimation(pipePosition, novaVel);
+    // }
+
+    requestAnimationFrame(loop);
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 100){
         
@@ -74,6 +99,8 @@ const loop = setInterval(() => {
     }
 
 }, 10);
+
+requestAnimationFrame(loop);
 
 document.addEventListener('keydown', function(check) {
     if (
