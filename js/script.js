@@ -1,14 +1,23 @@
+const gameBoard = document.querySelector('.game-board');
 const mario = document.querySelector('.mario');
+
 const pipe = document.querySelector('.pipe');
+
 const nuvem1 = document.querySelector('.nuvem1');
 const nuvem2 = document.querySelector('.nuvem2');
+
 const chao = document.querySelector('.chao');
 const botao = document.querySelector('.botao');
-const gameBoard = document.querySelector('.game-board');
 
 const score = document.getElementById('score');
 valorScore = 0;
 
+// Para evitar o scroll quando teclar SPACE
+window.onkeydown = function(e) {
+    if (e.key === ' ') {
+        e.preventDefault();
+    }
+};
 
 const pular = () => {
     mario.classList.add('pular');
@@ -32,12 +41,6 @@ const loop = setInterval(() => {
 
     score.textContent = valorScore;
 
-    // if (valorScore > 100) {
-    //     pipe.style.animation = 'pipe 1.4s infinite linear'
-
-    //     gameBoard.style.animation = 'cor 0.5s linear'
-    // }
-    
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 100){
         
         pipe.style.animation = 'none';
@@ -60,11 +63,25 @@ const loop = setInterval(() => {
 
         botao.style.opacity = '1';
 
-        console.log(valorScore);
-
         clearInterval(loop);
+
+        // Tecla enter pra reiniciar
+        document.addEventListener('keydown', function(check) {
+            if (check.key == 'Enter') {
+                this.location.reload();
+            }
+        })
     }
 
 }, 10);
 
-document.addEventListener('keydown', pular);
+document.addEventListener('keydown', function(check) {
+    if (
+        check.key === ' ' || 
+        check.key === 'w' || 
+        check.key === 'ArrowUp'
+        //qualquer outra tecla de pular adicionar aqui
+    ) {
+        pular();
+    }
+});
