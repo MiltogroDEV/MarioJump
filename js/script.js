@@ -10,6 +10,14 @@ const score = document.getElementById('score');
 valorScore = 0;
 
 
+// Para evitar o scroll quando teclar SPACE
+window.onkeydown = function(e) {
+    if (e.key === ' ') {
+        e.preventDefault();
+    }
+};
+/*----------------------------------------*/
+
 const pular = () => {
     mario.classList.add('pular');
     
@@ -63,8 +71,25 @@ const loop = setInterval(() => {
         console.log(valorScore);
 
         clearInterval(loop);
+
+        // Tecla enter pra reiniciar
+        document.addEventListener('keydown', function(check) {
+            if (check.key == 'Enter') {
+                this.location.reload();
+            }
+        })
+        /*----------------------------------------*/
     }
 
 }, 10);
 
-document.addEventListener('keydown', pular);
+document.addEventListener('keydown', function(check) {
+    if (
+        check.key === ' ' || 
+        check.key === 'w' || 
+        check.key === 'ArrowUp'
+        //qualquer outra tecla de pular adicionar aqui
+    ) {
+        pular();
+    }
+});
