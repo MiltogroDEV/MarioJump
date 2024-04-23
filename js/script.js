@@ -17,11 +17,11 @@ let maiorScore = 0;
 let pipeVel = '1.5s';
 
 
-function setPipeAnimation(novaVel) {
-    pipe.classList.remove('pipe1', 'pipe2', 'pipe3');
-    pipe.classList.add(novaVel === '1.5s' ? 'pipe1' : novaVel === '1.1s' ? 'pipe2' : 'pipe3');
-    pipe.style.animationDuration = novaVel;
-}
+// function setPipeAnimation(novaVel) {
+//     pipe.classList.remove('pipe1', 'pipe2', 'pipe3');
+//     pipe.classList.add(novaVel === '1.5s' ? 'pipe1' : novaVel === '1.1s' ? 'pipe2' : 'pipe3');
+//     pipe.style.animationDuration = novaVel;
+// }
 
 
 const loop = setInterval(() => {
@@ -37,19 +37,19 @@ const loop = setInterval(() => {
     score.textContent = valorScore;
     
     
-    let novaVel;
-    if (valorScore > 400) {
-        novaVel = '0.6s';
-    } else if (valorScore > 200) {
-        novaVel = '1.1s';
-    } else {
-        novaVel = '1.5s';
-    }
+    // let novaVel;
+    // if (valorScore > 400) {
+    //     novaVel = '0.6s';
+    // } else if (valorScore > 200) {
+    //     novaVel = '1.1s';
+    // } else {
+    //     novaVel = '1.5s';
+    // }
 
-    if (novaVel !== pipeVel) {
-        pipeVel = novaVel;
-        setPipeAnimation(novaVel);
-    }
+    // if (novaVel !== pipeVel) {
+    //     pipeVel = novaVel;
+    //     setPipeAnimation(novaVel);
+    // }
     
     
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 100){
@@ -61,8 +61,8 @@ const loop = setInterval(() => {
         mario.style.bottom = `${marioPosition}px`
         mario.src = '/img/game-over.png';
         
-        mario.style.width = '8vh';
-        mario.style.margin = '0 0 0 5vh';
+        mario.style.width = '80px';
+        mario.style.margin = '0 0 0 50px';
         
         nuvem1.style.animation = 'none';
         nuvem1.style.right = `${nuvem1Position}px`;

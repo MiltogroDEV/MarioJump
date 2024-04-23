@@ -29,10 +29,10 @@ body {
     background: linear-gradient(rgb(99, 99, 236), rgb(170, 203, 247));
 }
 
-.pipe, .pipe1, .pipe2, .pipe3 {
+.pipe1, .pipe2, .pipe3 {
     position: absolute;
     bottom: 0;
-    width: 9vh;
+    width: 90px;
     right: -80px;
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .mario {
-    width: 16vh;
+    width: 160px;
     position: absolute;
     bottom: 0;
 }
@@ -59,13 +59,13 @@ body {
 }
 
 .nuvem1 {
-    width: 550px;
+    width: 55vh;
     position: absolute;
     animation: nuvem1 10s infinite linear;
 }
 
 .nuvem2 {
-    width: 550px;
+    width: 55vh;
     position: absolute;
     animation: nuvem2 15s infinite linear;
 }
@@ -145,13 +145,13 @@ body {
         bottom: 0;
     }
     40%{
-        bottom: 18vh;
+        bottom: 180px;
     }
     50%{
-        bottom: 18vh;
+        bottom: 180px;
     }
     60%{
-        bottom: 18vh;
+        bottom: 180px;
     }
     100%{
         bottom: 0;
