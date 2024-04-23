@@ -11,7 +11,9 @@ O jogo consiste em uma mecânica simples onde o único comando é fazer o Mario 
 ### Controles
 
 - **Espaço / W / ArrowUP** : Faz o Mario pular.
-- **Enter** : Reinicia o jogo (Apenas quando morre).
+- **Enter** : Reinicia o jogo. (Ou pressione o botão a seguir)
+
+<img src="/img/README/imgbotao.png">
 
 ### Recursos
 
