@@ -1,6 +1,6 @@
 # **Mario Jump**
 
-Bem-vindo ao repositório do jogo **Mario Jump**! Este é um jogo web simples e divertido inspirado pelo clássico jogo do dinossauro offline. No entanto, ao invés do dinossauro, temos Mario, o icônico personagem da Nintendo, e também invés de cactos, enfrenta os canos verdes!
+Bem-vindo ao repositório do jogo **Mario Jump**! Este é um jogo web simples e divertido inspirado pelo clássico jogo do dinossauro offline.
 
 <img src="/img/README/imgjogo.png">
 
@@ -15,11 +15,6 @@ O jogo consiste em uma mecânica simples onde o único comando é fazer o Mario 
 
 <img src="/img/README/imgbotao.png">
 
-### Recursos
-
-- Interface simples e intuitiva.
-- Gráficos que remetem aos jogos clássicos do Mario.
-
 ## Tecnologias Utilizadas
 
 O jogo foi desenvolvido utilizando as seguintes tecnologias:
@@ -33,4 +28,4 @@ Contribuições são sempre bem-vindas! Se você tem alguma sugestão para melho
 
 ---
 
-Divirta-se pulando os canos e quebrando recordes no **Mario Jump**!
+Divirta-se pulando os cactos e quebrando recordes no **Mario Jump**!
