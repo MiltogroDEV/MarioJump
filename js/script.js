@@ -52,17 +52,18 @@ const loop = setInterval(() => {
     // }
     
     
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 100){
+    if (pipePosition <= 200 && pipePosition > 0 && marioPosition < 100){
         
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
         
         mario.style.animation = 'none';
-        mario.style.bottom = `${marioPosition}px`
-        mario.src = '/img/game-over.png';
+        mario.style.bottom = `${marioPosition - 30}px`
+        mario.style.rotate = '-90deg'
+        mario.src = '/img/personagemMaiorGameOver1.png';
         
-        mario.style.width = '80px';
-        mario.style.margin = '0 0 0 50px';
+        // mario.style.width = '80px';
+        // mario.style.margin = '0 0 0 50px';
         
         nuvem1.style.animation = 'none';
         nuvem1.style.right = `${nuvem1Position}px`;

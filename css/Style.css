@@ -49,9 +49,10 @@ body {
 }
 
 .mario {
-    width: 160px;
+    width: 100px;
     position: absolute;
     bottom: 0;
+    left: 100px;
 }
 
 .pular {
