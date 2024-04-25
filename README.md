@@ -2,7 +2,7 @@
 
 Bem-vindo ao repositório do jogo **Mario Jump**! Este é um jogo web simples e divertido inspirado pelo clássico jogo do dinossauro offline.
 
-<img src="/img/README/imgjogo.png">
+<img src="/img/README/imgjogo1.png">
 
 ## Como Jogar
 
